@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import ShareButton from '../components/ShareButton.astro';
+import ShareToast from '../components/ShareToast.astro';
+import ShareFooter from '../components/ShareFooter.astro';
 ---
 
 <!doctype html>
@@ -17,19 +20,58 @@ import '../styles/global.css';
     />
 
     <title>Frontend Mentor | Article preview component</title>
-  </head>
-  <body>
-    Shift the overall look and feel by adding these wonderful touches to
-    furniture in your home Ever been in a room and felt like something was
-    missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple
-    tips to help you make any room feel complete. Michelle Appleton 28 Jun 2020
-    Share
 
-    <div class='attribution'>
-      Challenge by <a
-        href='https://www.frontendmentor.io?ref=challenge'
-        target='_blank'>Frontend Mentor</a
-      >. Coded by <a href='#'>Your Name Here</a>.
-    </div>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+    </style>
+  </head>
+  <body class='min-h-screen bg-grey-200 px-6 py-16 font-manrope'>
+    <main>
+      <article class='flex flex-col overflow-hidden rounded-2lg bg-white'>
+        <img
+          class='max-h-[12.5rem] object-cover object-(--drawers-position)'
+          src='/images/drawers.jpg'
+          alt='Drawers'
+          width='660'
+          height='528'
+        />
+        <div class='mt-8 flex flex-col px-[1.875rem] pb-5'>
+          <h1 class='text-xl/[1.3] font-bold tracking-[.0156rem] text-grey-900'>
+            Shift the overall look and feel by adding these wonderful touches to
+            furniture in your home
+          </h1>
+          <p class='mt-6 text-[.8125rem]/[1.4] font-medium text-grey-500'>
+            Ever been in a room and felt like something was missing? Perhaps it
+            felt slightly bare and uninviting. I’ve got some simple tips to help
+            you make any room feel complete.
+          </p>
+          <footer id='footer' class=''>
+            <ShareFooter />
+          </footer>
+        </div>
+        <ShareToast
+          id='share-toast'
+          class='hide mt-[12px] w-full px-8 py-[1.375rem]'
+        />
+      </article>
+    </main>
+
+    <footer>
+      <p class='mt-6 text-center text-xs'>
+        Challenge by <a
+          class='text-blue-400 underline'
+          href='https://www.frontendmentor.io?ref=challenge'
+          target='_blank'
+        >
+          Frontend Mentor
+        </a>. <span class='whitespace-nowrap'
+          >Coded by <a
+            class='text-blue-400 underline'
+            href='https://www.frontendmentor.io/profile/AnonymousCoder323'
+            >Anonymous Coder</a
+          >.</span
+        >
+      </p>
+    </footer>
   </body>
 </html>

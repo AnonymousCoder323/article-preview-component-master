@@ -1,9 +1,23 @@
 @import 'tailwindcss';
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+@theme {
+  --color-grey-200: #ecf2f8;
+  --color-grey-400: #9daec2;
+  --color-grey-500: #6e8098;
+  --color-grey-900: #48556a;
+  --font-manrope: 'Manrope', 'sans-serif';
+  --radius-2lg: 10px;
+  --drawers-position: bottom -45px right 0px;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+
+:root {
+  --color-grey-200: #ecf2f8;
+  --color-grey-400: #9daec2;
+  --color-grey-500: #6e8098;
+  --color-grey-900: #48556a;
+}
+
+@utility hide {
+  position: absolute;
+  margin-left: -100000px;
 }

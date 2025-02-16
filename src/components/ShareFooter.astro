@@ -1,0 +1,30 @@
+---
+import ShareButton from './ShareButton.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class=`mt-12 flex flex-row items-center ${className}`>
+  <img
+    class='h-[2.5rem] w-[2.5rem] rounded-full object-cover'
+    src='/images/avatar-michelle.jpg'
+    alt="Michelle's avatar"
+    width='175'
+    height='175'
+  />
+  <p
+    class='ms-4 text-[.8125rem]/[1.4] font-bold whitespace-nowrap text-grey-900'
+  >
+    Michelle Appleton
+    <br />
+    <time class='font-medium text-grey-400' datetime='2020-06-28'
+      >28 Jun 2020</time
+    >
+  </p>
+
+  <ShareButton id='share-footer-button' class='ms-auto bg-grey-200' />
+</div>

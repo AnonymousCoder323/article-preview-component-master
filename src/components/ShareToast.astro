@@ -1,0 +1,27 @@
+---
+import FacebookIcon from './icons/FacebookIcon.astro';
+import TwitterIcon from './icons/TwitterIcon.astro';
+import PinterestIcon from './icons/PinterestIcon.astro';
+import ShareButton from './ShareButton.astro';
+
+interface Props {
+  class?: string;
+  id?: string;
+}
+
+const { class: className, id } = Astro.props;
+---
+
+<div id={id} class={`flex flex-row bg-grey-900 ${className} items-center`}>
+  <p class='text-[.8125rem]/[1.4] tracking-[3.3px] text-grey-400 uppercase'>
+    Share
+  </p>
+  <div class='ms-6'>
+    <ul class='flex flex-row items-center gap-4'>
+      <li><a href='#'><FacebookIcon /></a></li>
+      <li><a href='#'><TwitterIcon /></a></li>
+      <li><a href='#'><PinterestIcon /></a></li>
+    </ul>
+  </div>
+  <ShareButton id='share-toast-button' class='ms-auto bg-grey-500' lightIcon />
+</div>

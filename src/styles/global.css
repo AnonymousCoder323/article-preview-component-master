@@ -8,6 +8,7 @@
   --font-manrope: 'Manrope', 'sans-serif';
   --radius-2lg: 10px;
   --drawers-position: bottom -45px right 0px;
+  --drop-shadow: 0px 40px 40px -10px rgba(201, 213, 225, 0.5);
 }
 
 :root {

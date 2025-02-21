@@ -1,31 +1,16 @@
 ---
 import ShareIcon from './icons/ShareIcon.astro';
-import { DARK_GREY, LIGHT_GREY } from './icons/ShareIcon.astro';
 
 interface Props {
   class?: string;
-  lightIcon?: boolean;
   id?: string;
 }
 
-const { class: className, lightIcon: shouldUseLightIcon, id } = Astro.props;
+const { class: className, id } = Astro.props;
 ---
 
 <button
   id={id}
   class=`grid h-8 w-8 place-content-center rounded-full ${className} hover:cursor-pointer`
-  ><ShareIcon fill={shouldUseLightIcon ? LIGHT_GREY : DARK_GREY} /></button
+  ><ShareIcon /></button
 >
-
-<script>
-  const footer = document.getElementById('footer');
-  const shareToast = document.getElementById('share-toast');
-  const shareFooterButton = document.getElementById('share-footer-button');
-  const shareToastButton = document.getElementById('share-toast-button');
-  [shareFooterButton, shareToastButton].forEach((button) => {
-    button?.addEventListener('click', () => {
-      footer?.classList.toggle('hide');
-      shareToast?.classList.toggle('hide');
-    });
-  });
-</script>

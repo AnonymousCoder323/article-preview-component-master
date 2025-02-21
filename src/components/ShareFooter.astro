@@ -3,12 +3,13 @@ import ShareButton from './ShareButton.astro';
 
 interface Props {
   class?: string;
+  id?: string;
 }
 
-const { class: className } = Astro.props;
+const { class: className, id } = Astro.props;
 ---
 
-<div class=`mt-12 flex flex-row items-center ${className}`>
+<div id={id} class=`mt-12 flex flex-row items-center ${className}`>
   <img
     class='h-[2.5rem] w-[2.5rem] rounded-full object-cover'
     src='/images/avatar-michelle.jpg'
@@ -26,5 +27,8 @@ const { class: className } = Astro.props;
     >
   </p>
 
-  <ShareButton id='share-footer-button' class='ms-auto bg-grey-200' />
+  <ShareButton
+    id='share-footer-button'
+    class='ms-auto bg-grey-200 fill-grey-500'
+  />
 </div>

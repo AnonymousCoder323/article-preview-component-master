@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import ShareButton from '../components/ShareButton.astro';
 import ShareToast from '../components/ShareToast.astro';
 import ShareFooter from '../components/ShareFooter.astro';
 ---
@@ -25,19 +24,23 @@ import ShareFooter from '../components/ShareFooter.astro';
       @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
     </style>
   </head>
-  <body class='min-h-screen bg-grey-200 px-6 py-16 font-manrope'>
+  <body
+    class='grid min-h-screen place-content-center bg-grey-200 px-6 py-16 font-manrope sm:px-[5rem]'
+  >
     <main>
       <article
-        class='flex flex-col overflow-hidden rounded-2lg bg-white shadow-(--drop-shadow)'
+        class='flex max-w-[45.625rem] flex-col rounded-2lg bg-white shadow-(--article-drop-shadow) sm:flex-row'
       >
         <img
-          class='max-h-[12.5rem] object-cover object-(--drawers-position)'
+          class='mt-0 max-h-[12.5rem] rounded-t-2lg object-cover xs:object-(--drawers-position) sm:max-h-full sm:max-w-[37.7%] sm:rounded-l-2lg sm:rounded-tr-none sm:object-center'
           src='/images/drawers.jpg'
           alt='Drawers'
           width='660'
           height='528'
         />
-        <div class='mt-8 flex flex-col px-[1.875rem] pb-5'>
+        <div
+          class='mt-8 flex flex-col px-[1.875rem] pb-[1.125rem] sm:mt-0 sm:p-[1.875rem] md:pe-9 lg:px-10'
+        >
           <h1 class='text-xl/[1.3] font-bold tracking-[.0156rem] text-grey-900'>
             Shift the overall look and feel by adding these wonderful touches to
             furniture in your home
@@ -47,14 +50,14 @@ import ShareFooter from '../components/ShareFooter.astro';
             felt slightly bare and uninviting. I’ve got some simple tips to help
             you make any room feel complete.
           </p>
-          <footer id='footer' class=''>
-            <ShareFooter />
+          <footer class='relative'>
+            <ShareFooter id='share-footer' />
+            <ShareToast
+              id='share-toast'
+              class='-ms-[1.875rem] mt-[1.875rem] -mb-[1.125rem] hidden w-[calc(100%_+_2*1.875rem)] px-[1.875rem] py-[1.375rem] sm:absolute sm:-right-[6.75rem] sm:bottom-[5.1875rem] sm:w-auto sm:rounded-2lg sm:px-[2.375rem] sm:py-[1.125rem] sm:shadow-(--share-toast-drop-shadow)'
+            />
           </footer>
         </div>
-        <ShareToast
-          id='share-toast'
-          class='hide mt-[12px] w-full px-8 py-[1.375rem]'
-        />
       </article>
     </main>
 
@@ -77,3 +80,18 @@ import ShareFooter from '../components/ShareFooter.astro';
     </footer>
   </body>
 </html>
+
+<script>
+  const shareFooter = document.getElementById('share-footer');
+  const shareToast = document.getElementById('share-toast');
+  const shareFooterButton = document.getElementById('share-footer-button');
+  const shareToastButton = document.getElementById('share-toast-button');
+  [shareFooterButton, shareToastButton].forEach((button) => {
+    button?.addEventListener('click', () => {
+      shareFooter?.classList.toggle('max-sm:hide');
+      shareToast?.classList.toggle('hidden');
+      shareFooterButton?.classList.toggle('sm:bg-grey-500');
+      shareFooterButton?.classList.toggle('sm:fill-grey-200');
+    });
+  });
+</script>

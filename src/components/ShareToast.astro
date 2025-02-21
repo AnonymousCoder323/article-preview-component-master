@@ -13,7 +13,7 @@ const { class: className, id } = Astro.props;
 ---
 
 <div id={id} class={`flex flex-row bg-grey-900 ${className} items-center`}>
-  <p class='text-[.8125rem]/[1.4] tracking-[3.3px] text-grey-400 uppercase'>
+  <p class='text-[.8125rem]/[1.4] tracking-[.2062rem] text-grey-400 uppercase'>
     Share
   </p>
   <div class='ms-6'>
@@ -23,5 +23,11 @@ const { class: className, id } = Astro.props;
       <li><a href='#'><PinterestIcon /></a></li>
     </ul>
   </div>
-  <ShareButton id='share-toast-button' class='ms-auto bg-grey-500' lightIcon />
+  <ShareButton
+    id='share-toast-button'
+    class='ms-auto bg-grey-500 fill-grey-200 sm:hidden'
+  />
+  <span
+    class='sm:absolute sm:-bottom-[.75rem] sm:left-[calc(50%_-_.75rem)] sm:h-0 sm:w-0 sm:border-t-[.75rem] sm:border-r-[.75rem] sm:border-l-[.75rem] sm:border-grey-900 sm:border-r-transparent sm:border-l-transparent sm:drop-shadow-md'
+  ></span>
 </div>
